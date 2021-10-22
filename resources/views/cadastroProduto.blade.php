@@ -1,6 +1,6 @@
 @extends('templates.templates')
 @section('content')
-    
+
     <h1 class="text-center">@if(isset($products))Editar @else Cadastrar @endif</h1>
     @if(isset($errors) && count($errors)>0)
         <div class="text-center mt-4 mb-4 p-2 alert-danger">
@@ -27,14 +27,14 @@
         <div class="form-group">
             <label for="Preco">Usuario</label>
             <select class="form-control" name="id_user" id="id_user" required>
-                
-                <option value="{{$products->relUsers->id ?? ''}}">{{$products->relUsers->nome ?? 'Autor'}}</option>
+
+                <option value="{{$products->users->id ?? ''}}">{{$products->users->nome ?? 'Autor'}}</option>
                 @foreach($users as $row)
                     <option  value=" {{$row->id}} ">{{$row->nome}}</option>
                 @endforeach
             </select>
         </div>
-        
+
         <input type="submit" value="@if(isset($products))Editar @else Cadastrar @endif">
     </form>
 @endsection
