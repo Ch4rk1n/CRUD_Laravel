@@ -22,19 +22,18 @@
             </thead>
             <tbody>
 
-            @foreach($products as $row)
-                @php
-                    $user=$row->find($row->id)->relUsers;
-                @endphp
+            @foreach($products as $product)
+             
                 <tr>
-                    <th scope="row">{{$row->produto}}</th>
-                    <th scope="row">{{$user->nome}}</th>
-                    <th scope="row">{{$row->preco}}</th>
+                    <th scope="row">{{$product->id}}</th>
+                    <th scope="row">{{$product->produto}}</th>
+                    <th scope="row">{{$product->user->nome}}</th>
+                    <th scope="row">{{$product->preco}}</th>
                     <th scope="row">
-                        <a href="{{url("products/$row->id/edit")}}">
+                        <a href="{{url("products/$product->id/edit")}}">
                             <button class="btn btn-dark">Editar</button>
                         </a>
-                        <a href="{{url("products/$row->id")}}" class="js-del" >
+                        <a href="{{url("products/$product->id")}}" class="js-del" >
                             <button class="btn btn-danger">Deletar</button>
                         </a>
                     </th>
