@@ -51,7 +51,7 @@ class ProductController extends Controller
         Product::where(['id' => $id])->update([
             'produto' => $request->produto,
             'preco' => $request->preco,
-            'id_user' => $request->id_user,
+            'id_user' => $request->id_user
         ]);
 
         return redirect('products');
@@ -59,6 +59,6 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        return Product::destroy($id) ? 'sim' : 'não';
+        return Product::destroy($id) ? "sim" : "não";
     }
 }
