@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Session;
 class loginController extends Controller
 {
@@ -17,7 +17,7 @@ class loginController extends Controller
 
     public function auth(Request $request)
     {   
-        
+        echo Hash::make($request->get('password'));
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -25,9 +25,7 @@ class loginController extends Controller
 
         $credentials = $request->only('email', 'password');
         
-        if (Auth::attempt($credentials, $request->has('remember'))) {
-            dd('logou');
-        }
+        dd(Auth::attempt($credentials, $request->has('remember')));
         
     }
 }
