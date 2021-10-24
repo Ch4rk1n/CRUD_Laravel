@@ -27,7 +27,7 @@
                 <tr>
                     <th scope="row">{{$product->id}}</th>
                     <th scope="row">{{$product->produto}}</th>
-                    <th scope="row">{{$product->user->nome}}</th>
+                    <th scope="row">{{$product->user->name}}</th>
                     <th scope="row">{{$product->preco}}</th>
                     <th scope="row">
                         <a href="{{url("products/$product->id/edit")}}">

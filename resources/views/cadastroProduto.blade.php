@@ -28,9 +28,9 @@
             <label for="Preco">Usuario</label>
             <select class="form-control" name="id_user" id="id_user" required>
 
-                <option value="{{$products->user->id ?? ''}}">{{$products->user->nome ?? 'Autor'}}</option>
+                <option value="{{$products->user->id ?? ''}}">{{$products->user->name ?? 'Autor'}}</option>
                 @foreach($users as $user)
-                    <option  value=" {{$user->id}} ">{{$user->nome}}</option>
+                    <option  value=" {{$user->id}} ">{{$user->name}}</option>
                 @endforeach
             </select>
         </div>

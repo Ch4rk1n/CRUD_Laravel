@@ -17,7 +17,7 @@ class loginController extends Controller
 
     public function auth(Request $request)
     {   
-        echo Hash::make($request->get('password'));
+        
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -25,7 +25,11 @@ class loginController extends Controller
 
         $credentials = $request->only('email', 'password');
         
-        dd(Auth::attempt($credentials, $request->has('remember')));
+        if(Auth::attempt($credentials, $request->has('remember'))){
+            dd('logou');
+        }else{
+            dd('não logou');
+        }
         
     }
 }
