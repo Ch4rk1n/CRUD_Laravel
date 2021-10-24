@@ -34,19 +34,20 @@
 </nav>
 
 <main class="login-form">
-    <div class="cotainer">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    @foreach($admins as $adm)
-                        <div class="card-header">{{$adm->nome}}</div>
-                    @endforeach
+                    
+                        <div class="card-header">Login</div>
+                    
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="{{route('auth.admins')}}" method="POST">
+                            @csrf
                             <div class="form-group row">
-                                <label for="email_address" class="col-md-4 col-form-label text-md-right">Login</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                    <input type="text" id="email" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
 
@@ -61,9 +62,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     Sign in
                                 </button>
-                                
                             </div>
-                    </div>
                     </form>
                 </div>
             </div>
